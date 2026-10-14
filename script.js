@@ -1,5 +1,5 @@
 // Replace this URL with your deployed Render backend URL.
-const API_URL = "https://YOUR-SERVICE-NAME.onrender.com";
+const API_URL = "https://circular-queue-based-producer-consumer.onrender.com";
 
 const bufferElement = document.getElementById("buffer");
 const statusElement = document.getElementById("status");
