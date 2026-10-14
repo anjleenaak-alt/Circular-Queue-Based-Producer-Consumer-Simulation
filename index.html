@@ -2,11 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Circular Queue-Based Producer–Consumer Simulation</title>
+  <title>Circular Queue Buffer Simulator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
-</body>
+  <div class="container">
+    <header>
+      <p class="tag">DATA STRUCTURES PROJECT</p>
+      <h1>Circular Queue Buffer</h1>
+      <p class="subtitle">
+        Producer–Consumer Streaming Data Simulation
+      </p>
+    </header>
+
+    <section class="panel">
+      <div class="section-heading">
+        <h2>Buffer Configuration</h2>
+        <span id="status" class="status">Connecting...</span>
+      </div>
+
+      <div class="config">
+        <label for="capacity">Buffer Capacity</label>
+        <select id="capacity">
+          <option value="5">5 slots</option>
+          <option value="6" selected>6 slots</option>
+          <option value="8">8 slots</option>
+          <option value="10">10 slots</option>
+        </select>
+        <button id="resetBtn" class="secondary">Reset Buffer</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <h2>Streaming Buffer</h2>
+        <span id="occupancy">0 / 6 slots</span>
+      </div>
+
+      <div id="buffer" class="buffer"></div>
+
+      <div class="pointer-legend">
+        <span><b class="front-dot"></b> Front (next item)</span>
+        <span><b class="rear-dot"></b> Rear (last item)</span>
+      </div>
+
+      <div class="progress">
+        <div id="progressBar"></div>
+      </div>
+
+      <p id="message" class="message">
+        Waiting for the backend...
+      </p>
+    </section>
+
+    <section class="controls">
+      <div class="panel action-panel producer">
+        <div class="action-icon">↑</div>
+        <h2>Producer</h2>
+        <p>Generate a new data packet.</p>
+        <button id="produceBtn">Produce Data</button>
+      </div>
+
+      <div class="panel action-panel consumer">
+        <div class="action-icon">↓</div>
+        <h2>Consumer</h2>
+        <p>Remove the oldest data packet.</p>
+        <button id="consumeBtn">Consume Data</button>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <span>Total Produced</span>
+        <strong id="produced">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Total Consumed</span>
+        <strong id="consumed">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Free Slots</span>
+        <strong id="free">6</strong>
+      </div>
+      <div class="stat-card">
+        <span>Buffer Usage</span>
+        <strong id="usage">0%</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Operation Log</h2>
+      <ul id="log">
+        <li>Simulation started.</li>
+      </ul>
+    </section>
+
+    <footer>
+      Circular Queue • FIFO • Producer–Consumer Problem
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body> 
 </html>
